@@ -5,6 +5,13 @@
 UnityClient/Assets/Standard Assets/
 UnityClient/Assets/Standard Assets.meta
 
+#################
+## Unity Fluff
+#################
+
+UnityClient/Library/
+UnityClient/Temp/
+
 
 #################
 ## Eclipse
