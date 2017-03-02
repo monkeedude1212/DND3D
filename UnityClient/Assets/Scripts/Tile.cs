@@ -1,23 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Tile
 {
-    enum TileType
+    public enum TileType
     {
-        Dirt,
-        Empty
+        Empty, 
+        Floor        
     };
 
+    TileMap tileMap;
     TileType type = TileType.Empty;
-    World world;
     int x, y;
+    Action<Tile> typeChanged;
 
-    public Tile(World world, int x, int y)
+    public Tile(TileMap tileMap, int x, int y)
     {
-        this.world = world;
+        this.tileMap = tileMap;
         this.x = x;
         this.y = y;
-    }   
+    }
+
+    public void RegisterTypeChangedCallback(Action<Tile> callback)
+    {
+        typeChanged += callback;
+    }
+
+    public void UnregisterTypeChangedCallback(Action<Tile> callback)
+    {
+        typeChanged -= callback;
+    }
+
+    public TileType Type
+    {
+        get { return type; }
+        set 
+        {
+            if (type == value)
+                return;
+
+            type = value;
+            if (typeChanged != null)
+                typeChanged(this);
+        }
+    }
+
+    public int Y
+    {
+        get { return y; }
+    }
+
+    public int X
+    {
+        get { return x; }
+    }
 }
