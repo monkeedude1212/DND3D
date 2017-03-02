@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player{
 
     // These are the basic attributes
     private int strength = 10;
@@ -42,8 +41,4 @@ public class Player : MonoBehaviour {
         maxHitPoints = (8 + chaMod) * playerLevel;
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
