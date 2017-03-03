@@ -4,29 +4,29 @@ using System.Collections.Generic;
 public class Character{
 
     // These are the basic attributes
-    private int strength = 10;
-    private int dexterity = 10;
-    private int constitution = 10;
-    private int intelligence = 10;
-    private int wisdom = 10;
-    private int charisma = 10;
+    public int strength { get; protected set; }
+    public int dexterity { get; protected set; }
+    public int constitution { get; protected set; }
+    public int intelligence { get; protected set; }
+    public int wisdom { get; protected set; }
+    public int charisma { get; protected set; }
 
     // These are the numbers that actually matter, derived from
     // the attributes
-    private int strMod;
-    private int dexMod;
-    private int conMod;
-    private int intMod;
-    private int wisMod;
-    private int chaMod;
+    public int strMod { get; private set; }
+    public int dexMod { get; private set; }
+    public int conMod { get; private set; }
+    public int intMod { get; private set; }
+    public int wisMod { get; private set; }
+    public int chaMod { get; private set; }
 
     // This is the value of maximum possible hit points. This should be
     // replaced by a dedicated hit point interface later on
-    private int maxHitPoints;
+    public int maxHitPoints { get; private set; }
 
-    private int playerLevel = 1;
+    public int playerLevel { get; private set; }
 
-    private bool hasInspiration = false;
+    public bool hasInspiration { get; private set; }
     // Use this for initialization
     void Start () {
         // This is how modifiers are calculated from attruibutes
