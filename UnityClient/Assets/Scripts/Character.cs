@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-public class Player{
+public class Character{
 
     // These are the basic attributes
     private int strength = 10;
