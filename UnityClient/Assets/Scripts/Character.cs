@@ -10,7 +10,7 @@ public class Character{
     public int intelligence { get; protected set; }
     public int wisdom { get; protected set; }
     public int charisma { get; protected set; }
-
+    
     // These are the numbers that actually matter, derived from
     // the attributes
     public int strMod { get; private set; }
@@ -19,6 +19,14 @@ public class Character{
     public int intMod { get; private set; }
     public int wisMod { get; private set; }
     public int chaMod { get; private set; }
+
+
+    // Character has a race
+    private Race race;
+
+    //private Alignment alignment;
+
+    //private CharacterClass cc;
 
     // This is the value of maximum possible hit points. This should be
     // replaced by a dedicated hit point interface later on
