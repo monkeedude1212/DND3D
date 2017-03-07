@@ -20,7 +20,6 @@ public class Character{
     public int wisMod { get; private set; }
     public int chaMod { get; private set; }
 
-
     // Character has a race
     private Race race;
 
@@ -28,15 +27,19 @@ public class Character{
 
     //private CharacterClass cc;
 
+    public uint age { get; private set; }
+
     // This is the value of maximum possible hit points. This should be
     // replaced by a dedicated hit point interface later on
-    public int maxHitPoints { get; private set; }
+    public uint maxHitPoints { get; private set; }
 
-    public int playerLevel { get; private set; }
+    public uint playerLevel { get; private set; }
 
+    public uint currentXP { get; private set; }
+    
     public bool hasInspiration { get; private set; }
-    // Use this for initialization
-    void Start () {
+
+    Character () {
         // This is how modifiers are calculated from attruibutes
         // They should probably have an "update" function
 		strMod = (int) (((float)strength / 2.0) - 5.0);
@@ -45,8 +48,6 @@ public class Character{
         intMod = (int) (((float)intelligence / 2.0) - 5.0);
         wisMod = (int) (((float)wisdom / 2.0) - 5.0);
         chaMod = (int) (((float)charisma/ 2.0) - 5.0);
-        
-        maxHitPoints = (8 + chaMod) * playerLevel;
     }
 	
 }
