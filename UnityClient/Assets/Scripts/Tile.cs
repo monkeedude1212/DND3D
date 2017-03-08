@@ -23,12 +23,12 @@ public class Tile
         this.y = y;
     }
 
-    public void RegisterTypeChangedCallback(Action<Tile> callback)
+    public void registerTypeChangedCallback(Action<Tile> callback)
     {
         typeChanged += callback;
     }
 
-    public void UnregisterTypeChangedCallback(Action<Tile> callback)
+    public void unregisterTypeChangedCallback(Action<Tile> callback)
     {
         typeChanged -= callback;
     }

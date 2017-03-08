@@ -14,13 +14,13 @@ public class TileMapController : MonoBehaviour
         {
             for (int y = 0; y < tileMap.Height; ++y)
             {
-                Tile tileData = tileMap.GetTileAt(x, y);
+                Tile tileData = tileMap.getTileAt(x, y);
                 GameObject tileGO = new GameObject();
                 tileGO.name = "Tile_" + x + "_" + y;
                 tileGO.transform.position = new Vector3(tileData.X, tileData.Y, 0);
                 tileGO.AddComponent<SpriteRenderer>();
                 tileGO.transform.parent = this.transform;
-                tileData.RegisterTypeChangedCallback((tile) => { OnTileTypeChanged(tileData, tileGO); });
+                tileData.registerTypeChangedCallback((tile) => { onTileTypeChanged(tileData, tileGO); });
                 tileData.Type = Tile.TileType.Floor;
             }
         }
@@ -30,7 +30,7 @@ public class TileMapController : MonoBehaviour
     {
     }
 
-    void OnTileTypeChanged(Tile tileData, GameObject tileGO)
+    void onTileTypeChanged(Tile tileData, GameObject tileGO)
     {
         if (tileData.Type == Tile.TileType.Floor)
             tileGO.GetComponent<SpriteRenderer>().sprite = defaultTileSprite;
