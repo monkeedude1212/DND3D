@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Scripts\Human.cs" />
     <Compile Include="Assets\Scripts\Race.cs" />
   </ItemGroup>
   <ItemGroup>
