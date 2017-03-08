@@ -14,7 +14,12 @@ public abstract class Race {
     // probably okay for now. 
     protected int[] bonusAttributes;
 
-    enum Size { Fine, Diminutive, Tiny, Small, Medium, Large, Huge, Gargantuan, Colossal};
+    public enum Size { Fine, Diminutive, Tiny, Small, Medium, Large, Huge, Gargantuan, Colossal};
+
+    protected Size raceSize;
+
+    protected uint raceSpeed;
+
 
     // We don't have these things defined yet, but they will become necessary 
     // private Ability[] raceAbilities;

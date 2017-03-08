@@ -39,6 +39,8 @@ public class Character{
     
     public bool hasInspiration { get; private set; }
 
+    public uint speed { get; private set; }
+
     Character () {
         // This is how modifiers are calculated from attruibutes
         // They should probably have an "update" function

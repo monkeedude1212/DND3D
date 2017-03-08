@@ -16,5 +16,9 @@ public class Human : Race {
         {
             base.bonusAttributes[i] = 1;
         }
+
+        base.raceSize = Size.Medium;
+
+        base.raceSpeed = 30;
     }
 }
