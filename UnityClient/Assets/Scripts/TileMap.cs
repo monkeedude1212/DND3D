@@ -7,7 +7,7 @@ public class TileMap
     Tile[,] tiles;
     int width, height;
 
-    public TileMap(int width = 100, int height = 100)
+    public TileMap(int width = 50, int height = 50)
     {
         this.width = width;
         this.height = height;
@@ -35,10 +35,7 @@ public class TileMap
     public Tile GetTileAt(int x, int y)
     {
         if (x < 0 || x >= width || y < 0 || y >= height)
-        {
-            Debug.LogError("Tile coordinates out of range: (" + x + ", " + y + ")");
             return null;
-        }        
         return tiles[x, y];
     }
 }

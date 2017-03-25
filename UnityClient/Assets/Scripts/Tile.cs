@@ -11,10 +11,13 @@ public class Tile
         Floor        
     };
 
-    TileMap tileMap;
+    TileMap tileMap = null;
     TileType type = TileType.Empty;
     int x, y;
     Action<Tile> typeChanged;
+    Action<Tile> select;
+    Action<Tile> deselect;
+    bool selected = false;
 
     public Tile(TileMap tileMap, int x, int y)
     {
@@ -23,12 +26,32 @@ public class Tile
         this.y = y;
     }
 
+    public void RegisterSelectedCallback(Action<Tile> callback)
+    {
+        select += callback;
+    }
+
+    public void DeregisterSelectedCallback(Action<Tile> callback)
+    {
+        select -= callback;
+    }
+
+    public void RegisterDeselectedCallback(Action<Tile> callback)
+    {
+        deselect += callback;
+    }
+
+    public void DeregisterDeselectedCallback(Action<Tile> callback)
+    {
+        deselect -= callback;
+    }
+
     public void RegisterTypeChangedCallback(Action<Tile> callback)
     {
         typeChanged += callback;
     }
 
-    public void UnregisterTypeChangedCallback(Action<Tile> callback)
+    public void DeregisterTypeChangedCallback(Action<Tile> callback)
     {
         typeChanged -= callback;
     }
@@ -46,6 +69,26 @@ public class Tile
                 typeChanged(this);
         }
     }
+
+    public bool Selected
+    {
+        get { return selected; }
+        set
+        {
+            if (selected == value)
+                return;
+
+            if (select != null)
+            {
+                if (selected)
+                    deselect(this);
+                else
+                    select(this);
+            }
+            selected = value;
+        }
+    }
+
 
     public int Y
     {

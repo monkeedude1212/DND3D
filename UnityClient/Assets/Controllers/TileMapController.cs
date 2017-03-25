@@ -4,11 +4,28 @@ using UnityEngine;
 
 public class TileMapController : MonoBehaviour
 {
+    static TileMapController instance = null;
+    public static TileMapController Instance
+    {
+        get
+        {
+            return instance;
+        }
+
+        protected set
+        {
+            if (instance != null)
+                Debug.LogError("There can only be one instance of TileMapController");
+            instance = value;
+        }
+    }
+
     public Sprite defaultTileSprite;
-    TileMap tileMap;
+    public TileMap tileMap;
 
     void Start()
     {
+        Instance = this;
         tileMap = new TileMap();
         for (int x = 0; x < tileMap.Width; ++x)
         {
@@ -21,6 +38,8 @@ public class TileMapController : MonoBehaviour
                 tileGO.AddComponent<SpriteRenderer>();
                 tileGO.transform.parent = this.transform;
                 tileData.RegisterTypeChangedCallback((tile) => { OnTileTypeChanged(tileData, tileGO); });
+                tileData.RegisterSelectedCallback((tile) => { OnTileSelected(tileData, tileGO); });
+                tileData.RegisterDeselectedCallback((tile) => { OnTileDeselected(tileData, tileGO); });
                 tileData.Type = Tile.TileType.Floor;
             }
         }
@@ -34,5 +53,15 @@ public class TileMapController : MonoBehaviour
     {
         if (tileData.Type == Tile.TileType.Floor)
             tileGO.GetComponent<SpriteRenderer>().sprite = defaultTileSprite;
+    }
+
+    void OnTileSelected(Tile tileData, GameObject tileGO)
+    {
+        tileGO.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+    }
+
+    void OnTileDeselected(Tile tileData, GameObject tileGO)
+    {
+        tileGO.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
     }
 }
