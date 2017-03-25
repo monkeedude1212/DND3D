@@ -26,32 +26,32 @@ public class Tile
         this.y = y;
     }
 
-    public void RegisterSelectedCallback(Action<Tile> callback)
+    public void registerSelectedCallback(Action<Tile> callback)
     {
         select += callback;
     }
 
-    public void DeregisterSelectedCallback(Action<Tile> callback)
+    public void deregisterSelectedCallback(Action<Tile> callback)
     {
         select -= callback;
     }
 
-    public void RegisterDeselectedCallback(Action<Tile> callback)
+    public void registerDeselectedCallback(Action<Tile> callback)
     {
         deselect += callback;
     }
 
-    public void DeregisterDeselectedCallback(Action<Tile> callback)
+    public void deregisterDeselectedCallback(Action<Tile> callback)
     {
         deselect -= callback;
     }
 
-    public void RegisterTypeChangedCallback(Action<Tile> callback)
+    public void registerTypeChangedCallback(Action<Tile> callback)
     {
         typeChanged += callback;
     }
 
-    public void DeregisterTypeChangedCallback(Action<Tile> callback)
+    public void deregisterTypeChangedCallback(Action<Tile> callback)
     {
         typeChanged -= callback;
     }

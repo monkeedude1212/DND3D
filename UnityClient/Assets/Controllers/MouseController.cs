@@ -63,6 +63,6 @@ public class MouseController : MonoBehaviour
     {
         int x = Mathf.FloorToInt(position.x);
         int y = Mathf.FloorToInt(position.y);
-        return TileMapController.Instance.tileMap.GetTileAt(x, y);
+        return TileMapController.Instance.tileMap.getTileAt(x, y);
     }
 }

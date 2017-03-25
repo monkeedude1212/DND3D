@@ -32,7 +32,7 @@ public class TileMap
         get { return width; }
     }
 
-    public Tile GetTileAt(int x, int y)
+    public Tile getTileAt(int x, int y)
     {
         if (x < 0 || x >= width || y < 0 || y >= height)
             return null;
