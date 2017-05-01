@@ -48,12 +48,21 @@
   <ItemGroup>
      <Compile Include="Assets\BattleMap\Scripts\Cube.cs" />
      <Compile Include="Assets\BattleMap\Scripts\PlayerCameraScript.cs" />
+     <Compile Include="Assets\ChatManager.cs" />
      <Compile Include="Assets\Controllers\MouseController.cs" />
      <Compile Include="Assets\Controllers\TileMapController.cs" />
+     <Compile Include="Assets\MainMenuManager.cs" />
+     <Compile Include="Assets\MenuCameraScript.cs" />
+     <Compile Include="Assets\Models\Character.cs" />
      <Compile Include="Assets\Scripts\Tile.cs" />
      <Compile Include="Assets\Scripts\TileMap.cs" />
+     <Compile Include="Assets\Utils\Autofade.cs" />
+     <Compile Include="Assets\Utils\Singleton.cs" />
+     <None Include="Assets\Resources\NewUnlitShader.shader" />
+     <None Include="Assets\Resources\FaderShader.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
+     <None Include="Assets\Resources\PlaneNo zTest.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
