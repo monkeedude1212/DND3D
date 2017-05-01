@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 using models;
 
-public class ChatManager : MonoBehaviour
+public class ChatManager : NetworkBehaviour
 {
     Character currentCharacter;
 
@@ -15,7 +16,7 @@ public class ChatManager : MonoBehaviour
     void Start()
     {
         chatLog = new List<string>();
-        AddToChat("Initializing Chat");
+        RpcReceiveChat("Initializing Chat");
 
         GameObject obj = GameObject.FindGameObjectWithTag("CurrentCharacter");
         if (!ReferenceEquals(obj, null))
@@ -24,7 +25,11 @@ public class ChatManager : MonoBehaviour
         }
         if (!ReferenceEquals(currentCharacter, null))
         {
-            AddToChat("Welcome " + currentCharacter.name);
+            RpcReceiveChat("Welcome " + currentCharacter.name);
+        }
+        else
+        {
+            Debug.Log("No Character!");
         }
     }
 
@@ -34,8 +39,11 @@ public class ChatManager : MonoBehaviour
 
     }
 
-    public void AddToChat(string message)
+    [ClientRpc]
+    public void RpcReceiveChat(string message)
     {
+        // Only called on one of the clients
+        Debug.Log("Got chat message: " + message);
         chatLog.Add(message);
         chatTextBox.text += '\n';
         chatTextBox.text += message;
