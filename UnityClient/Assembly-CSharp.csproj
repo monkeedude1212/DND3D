@@ -51,9 +51,13 @@
      <Compile Include="Assets\ChatManager.cs" />
      <Compile Include="Assets\Controllers\MouseController.cs" />
      <Compile Include="Assets\Controllers\TileMapController.cs" />
-     <Compile Include="Assets\MainMenuManager.cs" />
-     <Compile Include="Assets\MenuCameraScript.cs" />
+     <Compile Include="Assets\MainMenu\MainMenuManager.cs" />
+     <Compile Include="Assets\MainMenu\MenuCameraScript.cs" />
      <Compile Include="Assets\Models\Character.cs" />
+     <Compile Include="Assets\Network\Client.cs" />
+     <Compile Include="Assets\Network\Command.cs" />
+     <Compile Include="Assets\Network\Host.cs" />
+     <Compile Include="Assets\Network\Message.cs" />
      <Compile Include="Assets\Scripts\Tile.cs" />
      <Compile Include="Assets\Scripts\TileMap.cs" />
      <Compile Include="Assets\Utils\Autofade.cs" />
