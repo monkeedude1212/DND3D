@@ -13,6 +13,7 @@ public class MouseController : MonoBehaviour
 	void Start () 
     {
         lastPos = camera.ScreenToWorldPoint(Input.mousePosition);
+		camera = Camera.main;
 	}
 	
 	void Update () 
